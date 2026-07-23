@@ -1,0 +1,244 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Arial-BoldMT;\f1\fswiss\fcharset0 ArialMT;\f2\fmodern\fcharset0 Courier;
+\f3\fswiss\fcharset0 Arial-ItalicMT;\f4\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red109\green109\blue109;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c0\c84706;\cssrgb\c50196\c50196\c50196;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww28600\viewh14980\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Description\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 The 
+\f2\fs28 TempestAgent
+\f1\fs32  manages open-source gate qualification testing via the OpenStack Tempest framework. It interfaces directly with 
+\f2\fs28 stestr
+\f1\fs32  to execute validation suites like smoke tests, API compute checks, and network verifications to guarantee compliance before distribution check-ins.\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 Installation Dependencies\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 Your execution runtime must have the Python 
+\f2\fs28 stestr
+\f1\fs32  package installed and configured:\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 bash\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 pip install stestr\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 Use code with caution.\
+\pard\pardeftab720\qc\partightenfactor0
+
+\fs26\fsmilli13333 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 CLI Execution Usage\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 You can invoke the Tempest agent runner directly from your shell workspace environment.\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 bash\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 python tempest_agent.py --workspace <PATH_TO_TEMPEST> [--filter <REGEX_PATTERN>] [--full-pipeline]\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 Use code with caution.\
+\pard\pardeftab720\qc\partightenfactor0
+
+\fs26\fsmilli13333 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 Argument Flags\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls1\ilvl0
+\f2\b0\fs28 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 --workspace
+\f1\fs32  
+\f3\i (Required)
+\f1\i0 : The path to the root directory where Tempest is installed and contains 
+\f2\fs28 .stestr.conf
+\f1\fs32  and 
+\f2\fs28 tempest.conf
+\f1\fs32 .\
+\ls1\ilvl0
+\f2\fs28 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 --filter
+\f1\fs32  
+\f3\i (Optional)
+\f1\i0 : A specific test selection regex engine pattern (e.g. 
+\f2\fs28 smoke
+\f1\fs32 , 
+\f2\fs28 tempest.api.identity
+\f1\fs32 ).\
+\ls1\ilvl0
+\f2\fs28 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 --full-pipeline
+\f1\fs32  
+\f3\i (Optional Flag)
+\f1\i0 : Runs a full check-in qualification flow (
+\f2\fs28 smoke
+\f1\fs32  \uc0\u8594  
+\f2\fs28 compute
+\f1\fs32  \uc0\u8594  
+\f2\fs28 network
+\f1\fs32 ). Overrides the individual 
+\f2\fs28 --filter
+\f1\fs32  argument.\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 CLI Examples\
+Run the default OpenStack verification smoke tests:
+\f1\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 bash\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 python tempest_agent.py --workspace /opt/stack/tempest --filter smoke\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 Use code with caution.\
+\pard\pardeftab720\qc\partightenfactor0
+
+\fs26\fsmilli13333 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 \strokec2 Execute the complete multi-stage distribution check-in pipeline:
+\f1\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 bash\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 python tempest_agent.py --workspace /opt/stack/tempest --full-pipeline\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 Use code with caution.\
+\pard\pardeftab720\qc\partightenfactor0
+
+\fs26\fsmilli13333 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs40 \cf0 \uc0\u55357 \u56507  Updated Python Code Templates with Argument Parsing\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs32 \cf0 To make those instructions work, replace the execution blocks (
+\f2\fs28 if __name__ == "__main__":
+\f1\fs32 ) at the bottom of your agent files with the updated argument-parsing logic below.\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 Add to the bottom of 
+\f4\fs28 connectathon_agent.py
+\f0\fs32 :\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 python\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 if __name__ == "__main__":\
+    import argparse\
+\
+    parser = argparse.ArgumentParser(description="Connectathon Automated Test Runner Agent")\
+    parser.add_argument("--test-dir", required=True, help="Path to compiled Connectathon directory")\
+    parser.add_argument("--mount-point", required=True, help="Path to the test mount point target")\
+    parser.add_argument("--suite", default="all", choices=["all", "basic", "general", "special"], \
+                        help="Specific suite to run (default: all)")\
+\
+    args = parser.parse_args()\
+    agent = ConnectathonAgent(test_dir=args.test_dir)\
+\
+    if args.suite == "all":\
+        report = agent.run_all_suites(target_mount=args.mount_point)\
+    else:\
+        report = agent.run_suite(suite_name=args.suite, target_mount=args.mount_point)\
+\
+    print(json.dumps(report, indent=2))\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 Use code with caution.\
+\pard\pardeftab720\qc\partightenfactor0
+
+\fs26\fsmilli13333 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 Add to the bottom of 
+\f4\fs28 tempest_agent.py
+\f0\fs32 :\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 python\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 if __name__ == "__main__":\
+    import argparse\
+\
+    parser = argparse.ArgumentParser(description="Tempest Code Check-in Qualification Agent")\
+    parser.add_argument("--workspace", required=True, help="Path to your Tempest workspace root")\
+    parser.add_argument("--filter", default="smoke", help="Stestr regex test string filter (default: smoke)")\
+    parser.add_argument("--full-pipeline", action="store_true", help="Run the full CI qualification flow")\
+\
+    args = parser.parse_args()\
+    agent = TempestAgent(tempest_dir=args.workspace)\
+\
+    if args.full-pipeline:\
+        report = agent.run_full_checkin_suite()\
+    else:\
+        report = agent.run_qualification_tests(filter_regex=args.filter)\
+\
+    print(json.dumps(report, indent=2))\
+}
